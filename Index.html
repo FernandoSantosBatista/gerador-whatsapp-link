@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de Link do WhatsApp</title>
+</head>
+<body>
+  <h2>Gerador de Link para WhatsApp</h2>
+
+  <label for="numero">Número (com DDD):</label><br>
+  <input type="text" id="numero" placeholder="Ex: 11999999999"><br><br>
+
+  <button onclick="gerarLink()">Gerar Link</button><br><br>
+
+  <p id="linkGerado"></p>
+
+  <script>
+    function gerarLink() {
+      const numero = document.getElementById('numero').value.trim();
+      if (!numero) {
+        alert("Por favor, insira o número com DDD.");
+        return;
+      }
+      const numeroFormatado = `55${numero.replace(/\D/g, '')}`;
+      const link = `https://wa.me/${numeroFormatado}`;
+      document.getElementById('linkGerado').innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
+    }
+  </script>
+</body>
+</html>
 
